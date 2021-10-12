@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ProfileMicroservice.Context;
+using ProfileMicroservice.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,15 +27,9 @@ namespace ProfileMicroservice
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSwaggerGen(s =>
-            {
-                s.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "ProfileMicroservice",
-                    Description = ""
-                });
-            });
-
+            services.ConfigureCors();
+            services.ConfigureSwagger();
+            services.ConfigureSqlContext(Configuration);
             services.AddControllers();
         }
 

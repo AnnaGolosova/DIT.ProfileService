@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace ProfileMicroservice.Context
     {
         public ProfileContext(DbContextOptions options) : base(options)
         {
-
         }
+        public DbSet<Profile> Profiles { get; set; }
     }
 }
