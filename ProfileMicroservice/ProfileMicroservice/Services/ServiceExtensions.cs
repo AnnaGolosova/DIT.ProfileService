@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using ProfileMicroservice.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Context;
 
 namespace ProfileMicroservice.Services
 {
@@ -31,7 +31,8 @@ namespace ProfileMicroservice.Services
         }
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
             services.AddDbContext<ProfileContext>(opts =>
-                opts.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+                opts.UseSqlServer(configuration.GetConnectionString("sqlConnection"), b =>
+                    b.MigrationsAssembly("ProfileMicroservice")));
 
     }
 }
