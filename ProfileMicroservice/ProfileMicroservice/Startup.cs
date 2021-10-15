@@ -24,8 +24,9 @@ namespace ProfileMicroservice
             services.ConfigureCors();
             services.ConfigureSwagger();
             services.ConfigureSqlContext(Configuration);
-            services.AddMediatR(typeof(Startup).Assembly);
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddControllers();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
