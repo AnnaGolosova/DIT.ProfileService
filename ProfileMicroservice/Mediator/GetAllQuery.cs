@@ -1,7 +1,5 @@
-﻿using Context;
-using Entities.Models;
+﻿using Entities.Models;
 using MediatR;
-using Repository;
 using Repository.Manager;
 using System.Collections.Generic;
 using System.Threading;

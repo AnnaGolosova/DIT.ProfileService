@@ -1,9 +1,6 @@
-﻿using Repository.Repositories;
+﻿using Context;
 using Repository.Manager;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Context;
+using Repository.Repositories;
 
 namespace Repository
 {

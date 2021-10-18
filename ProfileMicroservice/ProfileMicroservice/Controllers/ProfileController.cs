@@ -1,8 +1,6 @@
-﻿using Entities.Models;
-using Mediator;
+﻿using Mediator;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Mediator;
 using System;
 using System.Threading.Tasks;
 

@@ -1,10 +1,5 @@
-﻿using Context;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Repository;
-using Repository.Manager;
 using System.Reflection;
 
 namespace Meditor

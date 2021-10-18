@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Context.Configuration
 {
@@ -12,8 +10,8 @@ namespace Context.Configuration
         public void Configure(EntityTypeBuilder<Profile> builder)
         {
             builder.HasData(
-                new Profile() 
-                { 
+                new Profile()
+                {
                     Id = Guid.NewGuid(),
                     FirstName = "dsf",
                     LastName = "dsf",

@@ -5,8 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProfileMicroservice.Services;
-using Repository;
-using Repository.Manager;
 
 namespace ProfileMicroservice
 {
