@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace Repository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         protected ProfileContext _context;
         public BaseRepository(ProfileContext context)

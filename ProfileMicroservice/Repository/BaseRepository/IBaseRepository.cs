@@ -4,12 +4,12 @@ using System.Linq.Expressions;
 
 namespace Repository
 {
-    public interface IBaseRepository<T> where T : class
+    public interface IBaseRepository<T>
     {
-        void Create(T entity);
-        void Delete(T entity);
         IQueryable<T> ReturnAll(bool trackChanges);
         IQueryable<T> ReturnDistinct(Expression<Func<T, bool>> expression, bool trackChanges);
+        void Create(T entity);
+        void Delete(T entity);
         void Update(T entity);
     }
 }
