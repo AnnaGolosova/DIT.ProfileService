@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Context;
+using Repository.Manager;
+using Repository;
 
 namespace ProfileMicroservice.Services
 {
@@ -33,6 +35,9 @@ namespace ProfileMicroservice.Services
             services.AddDbContext<ProfileContext>(opts =>
                 opts.UseSqlServer(configuration.GetConnectionString("sqlConnection"), b =>
                     b.MigrationsAssembly("ProfileMicroservice")));
-
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+        }
     }
 }

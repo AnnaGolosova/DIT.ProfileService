@@ -21,12 +21,12 @@ namespace ProfileMicroservice.Mediator
             }
             public async Task<IEnumerable<Profile>> Handle(GetAllProfilesQuery query, CancellationToken cancellationToken)
             {
-                var productList = await _context.Profiles.ToListAsync();
+                var productList =  _context.Set<Profile>();//.ToListAsync();
                 if (productList == null)
                 {
                     return null;
                 }
-                return productList.AsReadOnly();
+                return productList;
             }
         }
     }

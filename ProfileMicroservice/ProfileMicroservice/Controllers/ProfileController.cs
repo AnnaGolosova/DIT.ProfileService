@@ -25,5 +25,10 @@ namespace ProfileMicroservice.Controllers
             //return Ok(_context.Set<Profile>());//
             return Ok(await _mediator.Send(new GetAllProfilesQuery() { }));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            return Ok(await _mediator.Send(new GetAllProfilesQuery() { }));
+        }
     }
 }

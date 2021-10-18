@@ -24,6 +24,7 @@ namespace ProfileMicroservice
             services.ConfigureCors();
             services.ConfigureSwagger();
             services.ConfigureSqlContext(Configuration);
+            services.ConfigureRepositoryManager();
             services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddControllers();
 
