@@ -1,14 +1,11 @@
 ﻿using Context;
 using Entities.Models;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ProfileMicroservice.Mediator
+namespace Mediator
 {
     public class GetAllProfilesQuery : IRequest<IEnumerable<Profile>>
     {
@@ -21,7 +18,7 @@ namespace ProfileMicroservice.Mediator
             }
             public async Task<IEnumerable<Profile>> Handle(GetAllProfilesQuery query, CancellationToken cancellationToken)
             {
-                var productList =  _context.Set<Profile>();//.ToListAsync();
+                var productList = _context.Set<Profile>();//.ToListAsync();
                 if (productList == null)
                 {
                     return null;

@@ -1,7 +1,7 @@
 ﻿using Entities.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ProfileMicroservice.Mediator;
+using Mediator;
 using System;
 using System.Threading.Tasks;
 

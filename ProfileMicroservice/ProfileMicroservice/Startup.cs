@@ -1,12 +1,10 @@
-using MediatR;
+using Meditor;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProfileMicroservice.Services;
-using System;
-using System.Reflection;
 
 namespace ProfileMicroservice
 {
@@ -25,7 +23,8 @@ namespace ProfileMicroservice
             services.ConfigureSwagger();
             services.ConfigureSqlContext(Configuration);
             services.ConfigureRepositoryManager();
-            services.AddMediatR(Assembly.GetExecutingAssembly());
+            services.ConfigureMediator();
+            //services.AddMediatR(Assembly.GetExecutingAssembly());
             services.AddControllers();
 
         }
