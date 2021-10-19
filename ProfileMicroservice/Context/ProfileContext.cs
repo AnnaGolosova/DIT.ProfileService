@@ -16,10 +16,12 @@ namespace Context
             modelBuilder.ApplyConfiguration(new ProfileConfiguration());
             modelBuilder.ApplyConfiguration(new GenderConfiguration());
             modelBuilder.ApplyConfiguration(new FriendConfiguration());
+            modelBuilder.ApplyConfiguration(new FriendshipRequestConfiguration());
         }
         public DbSet<Profile> Profiles { get; set; }
         public DbSet<Gender> Genders { get; set; }
         public DbSet<Friend> Friends { get; set; }
+        public DbSet<FriendshipRequest> FriendshipRequests { get; set; }
     }
 }
 
