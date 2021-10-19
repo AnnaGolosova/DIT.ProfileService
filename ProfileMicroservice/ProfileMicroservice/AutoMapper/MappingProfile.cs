@@ -13,6 +13,8 @@ namespace ProfileMicroservice.AutoMapper
 
             CreateMap<Entities.Models.Profile, ReturnProfileDto>().ForMember(x => x.Gender, opt => opt.MapFrom(m => m.Gender.Title));
 
+            CreateMap<Entities.Models.Gender, ReturnGenderDto>();
+
         }
     }
 }

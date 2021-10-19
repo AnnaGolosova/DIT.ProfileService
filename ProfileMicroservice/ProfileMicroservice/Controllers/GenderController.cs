@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Mediator.Queries.GenderQueries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,6 +18,10 @@ namespace ProfileMicroservice.Controllers
         {
             _mediator = mediator;
         }
-
+        [HttpGet]
+        public async Task<IActionResult> GetProfiles()
+        {
+            return Ok(await _mediator.Send(new GetAllAsStringGendersQuery() { }));
+        }
     }
 }
