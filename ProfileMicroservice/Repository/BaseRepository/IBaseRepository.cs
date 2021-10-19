@@ -11,5 +11,6 @@ namespace Repository
         void Create(T entity);
         void Delete(T entity);
         void Update(T entity);
+        void Save();
     }
 }

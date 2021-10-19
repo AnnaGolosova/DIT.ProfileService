@@ -1,6 +1,7 @@
 ﻿using Entities.ModelsDto;
 using Mediator;
 using Mediator.Commands.ProfileCommands;
+using Mediator.Queries.ProfileQueries;
 using Mediator.Queries.ProfileQuery;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -28,12 +29,17 @@ namespace ProfileMicroservice.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            return Ok(await _mediator.Send(new GetAllProfilesQuery() { }));
+            return Ok(await _mediator.Send(new GetByIdProfileQuery() { }));
         }
         [HttpPost]
         public async Task<IActionResult> CreateProfile([FromBody] CreateProfileDto profileDto)
         {
             return Ok(await _mediator.Send(new CreateProfileCommand() {createProfile = profileDto }));
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileDto profileDto)
+        {
+            return Ok(await _mediator.Send(new UpdateProfileCommand() { updateProfile = profileDto }));
         }
     }
 }
