@@ -6,5 +6,6 @@ namespace Repository.Manager
     {
         IProfileRepository Profiles { get; }
         IGenderRepository Genders { get; }
+        IFriendRepository Friends { get; }
     }
 }

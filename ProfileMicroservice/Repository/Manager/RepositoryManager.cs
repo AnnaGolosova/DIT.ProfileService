@@ -8,6 +8,7 @@ namespace Repository
     {
         private IProfileRepository _profileRepository;
         private IGenderRepository _genderRepository;
+        private IFriendRepository _friendRepository;
         private ProfileContext _context;
 
         public RepositoryManager(ProfileContext context)
@@ -31,6 +32,15 @@ namespace Repository
                 if (_genderRepository == null)
                     _genderRepository = new GenderRepository(_context);
                 return _genderRepository;
+            }
+        }
+        public IFriendRepository Friends
+        {
+            get
+            {
+                if (_friendRepository == null)
+                    _friendRepository = new FriendRepository(_context);
+                return _friendRepository;
             }
         }
     }
