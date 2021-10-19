@@ -15,6 +15,14 @@ namespace ProfileMicroservice.AutoMapper
 
             CreateMap<Entities.Models.Gender, ReturnGenderDto>();
 
+            CreateMap<Entities.Models.Friend, ReturnProfileDto>()
+                .ForMember(x => x.Age, opt => opt.MapFrom(m => m.Profile.Age))
+                .ForMember(x => x.FirstName, opt => opt.MapFrom(m => m.Profile.FirstName))
+                .ForMember(x => x.LastName, opt => opt.MapFrom(m => m.Profile.LastName))
+                .ForMember(x => x.Id, opt => opt.MapFrom(m => m.Profile.Id))
+                .ForMember(x => x.ImageUrl, opt => opt.MapFrom(m => m.Profile.ImageId))
+                .ForMember(x => x.Gender, opt => opt.MapFrom(m => m.Profile.Gender.Title));
+
         }
     }
 }

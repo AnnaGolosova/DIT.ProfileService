@@ -43,5 +43,9 @@ namespace Repository
                 return _friendRepository;
             }
         }
+        public void SaveChange()
+        {
+            _context.SaveChanges();
+        }
     }
 }
