@@ -1,5 +1,8 @@
-﻿using Entities.Models;
+﻿using AutoMapper;
+using Entities.Models;
+using Entities.ModelsDto;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Repository.Manager;
 using System.Collections.Generic;
 using System.Threading;
@@ -7,23 +10,26 @@ using System.Threading.Tasks;
 
 namespace Mediator.Queries.ProfileQuery
 {
-    public class GetAllProfilesQuery : IRequest<IEnumerable<Profile>>
+    public class GetAllProfilesQuery : IRequest<IEnumerable<ReturnProfileDto>>
     {
-        public class GetAllProfilesQueryHandler : IRequestHandler<GetAllProfilesQuery, IEnumerable<Profile>>
+        public class GetAllProfilesQueryHandler : IRequestHandler<GetAllProfilesQuery, IEnumerable<ReturnProfileDto>>
         {
             private readonly IRepositoryManager _manager;
-            public GetAllProfilesQueryHandler(IRepositoryManager manager)
+            private readonly IMapper _mapper;
+            public GetAllProfilesQueryHandler(IMapper mapper, IRepositoryManager manager)
             {
+                _mapper = mapper;
                 _manager = manager;
             }
-            public async Task<IEnumerable<Profile>> Handle(GetAllProfilesQuery query, CancellationToken cancellationToken)
+            public async Task<IEnumerable<ReturnProfileDto>> Handle(GetAllProfilesQuery query, CancellationToken cancellationToken)
             {
-                var productList = _manager.Profiles.ReturnAll(false);//.ToListAsync();
-                if (productList == null)
+                var profileList = _manager.Profiles.ReturnAll(false).Include(p => p.Gender);//.ToListAsync();
+                if (profileList == null)
                 {
                     return null;
                 }
-                return productList;
+                var profileListDto = _mapper.Map<IEnumerable<ReturnProfileDto>>(profileList);
+                return profileListDto;
             }
         }
     }
