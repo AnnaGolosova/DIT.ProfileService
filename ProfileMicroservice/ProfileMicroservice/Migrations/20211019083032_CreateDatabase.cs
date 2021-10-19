@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProfileMicroservice.Migrations
 {
-    public partial class ProfileGenderHasData : Migration
+    public partial class CreateDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,6 +24,7 @@ namespace ProfileMicroservice.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AccountId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -52,8 +53,8 @@ namespace ProfileMicroservice.Migrations
 
             migrationBuilder.InsertData(
                 table: "Profiles",
-                columns: new[] { "Id", "FirstName", "GenderId", "ImageId", "LastName" },
-                values: new object[] { new Guid("55787a50-be4a-406a-a84c-4bea8d9e5d0a"), "dsf", new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), new Guid("00000000-0000-0000-0000-000000000000"), "dsf" });
+                columns: new[] { "Id", "AccountId", "FirstName", "GenderId", "ImageId", "LastName" },
+                values: new object[] { new Guid("3b045863-a3ed-47e6-bf31-f25149ab45e8"), new Guid("00000000-0000-0000-0000-000000000000"), "dsf", new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"), new Guid("00000000-0000-0000-0000-000000000000"), "dsf" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Profiles_GenderId",

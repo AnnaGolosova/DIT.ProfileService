@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ProfileMicroservice.Migrations
 {
     [DbContext(typeof(ProfileContext))]
-    [Migration("20211013143324_Profile-Gender-HasData")]
-    partial class ProfileGenderHasData
+    [Migration("20211019083032_CreateDatabase")]
+    partial class CreateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,9 @@ namespace ProfileMicroservice.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("AccountId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -74,7 +77,8 @@ namespace ProfileMicroservice.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("55787a50-be4a-406a-a84c-4bea8d9e5d0a"),
+                            Id = new Guid("3b045863-a3ed-47e6-bf31-f25149ab45e8"),
+                            AccountId = new Guid("00000000-0000-0000-0000-000000000000"),
                             FirstName = "dsf",
                             GenderId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                             ImageId = new Guid("00000000-0000-0000-0000-000000000000"),
