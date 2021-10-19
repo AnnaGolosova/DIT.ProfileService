@@ -22,12 +22,12 @@ namespace ProfileMicroservice.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetProfiles()
         {
             return Ok(await _mediator.Send(new GetAllProfilesQuery() { }));
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(Guid id)
+        public async Task<IActionResult> GetByIdProfile(Guid id)
         {
             return Ok(await _mediator.Send(new GetByIdProfileQuery() { }));
         }
@@ -40,6 +40,11 @@ namespace ProfileMicroservice.Controllers
         public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileDto profileDto)
         {
             return Ok(await _mediator.Send(new UpdateProfileCommand() { updateProfile = profileDto }));
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProfile(Guid id)
+        {
+            return Ok($"Profile from ID {await _mediator.Send(new DeleteProfileCommand() { Id = id })} has been deleted.");
         }
     }
 }
