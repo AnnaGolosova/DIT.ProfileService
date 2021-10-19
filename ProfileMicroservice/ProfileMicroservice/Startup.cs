@@ -23,6 +23,7 @@ namespace ProfileMicroservice
             services.ConfigureSwagger();
             services.ConfigureSqlContext(Configuration);
             services.ConfigureRepositoryManager();
+            services.ConfigureAutoMapper();
             services.ConfigureMediator();
             services.AddControllers();
         }

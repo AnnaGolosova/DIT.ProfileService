@@ -39,5 +39,9 @@ namespace ProfileMicroservice.Services
         {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         }
+        public static void ConfigureAutoMapper(this IServiceCollection services)
+        {
+            services.AddAutoMapper(typeof(Startup));
+        }
     }
 }

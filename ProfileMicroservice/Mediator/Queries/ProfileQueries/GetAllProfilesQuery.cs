@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Mediator
+namespace Mediator.Queries.ProfileQuery
 {
     public class GetAllProfilesQuery : IRequest<IEnumerable<Profile>>
     {
